@@ -1,0 +1,15 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    id: 'Build Image'
+    args: ['build', '-t', 'asia.gcr.io/gold-episode-260512/quarkus-example', '.', '-f', './src/main/docker/Dockerfile.multistage']
+    dir: './'
+
+  - name: 'gcr.io/cloud-builders/docker'
+    id: 'Push to Container Registry'
+    args: ['push', 'asia.gcr.io/gold-episode-260512/quarkus-example']
+    dir: './'
+
+  - name: 'gcr.io/cloud-builders/docker'
+    id: 'Deploy to Cloud Run'
+    args: ['run', 'deploy', '--image', 'asia.gcr.io/gold-episode-260512/quarkus-example', '--platform', 'managed']
+    dir: './'
