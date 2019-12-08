@@ -9,7 +9,7 @@ steps:
     args: ['push', 'asia.gcr.io/gold-episode-260512/quarkus-example']
     dir: './'
 
-  - name: 'gcr.io/cloud-builders/docker'
+  - name: 'gcr.io/cloud-builders/gcloud'
     id: 'Deploy to Cloud Run'
-    args: ['run', 'deploy', '--image', 'asia.gcr.io/gold-episode-260512/quarkus-example', '--platform', 'managed']
+    args: ['beta', 'run', 'deploy', 'quarkus-example', '--image', 'asia.gcr.io/gold-episode-260512/quarkus-example', '--platform', 'managed', '--region', 'asia-northeast1', '--allow-unauthenticated']
     dir: './'
