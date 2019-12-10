@@ -11,5 +11,5 @@ steps:
 
   - name: 'gcr.io/cloud-builders/gcloud'
     id: 'Deploy to Cloud Run'
-    args: ['beta', 'run', 'deploy', 'quarkus-example', '--image', 'asia.gcr.io/gold-episode-260512/quarkus-example', '--platform', 'managed', '--region', 'asia-northeast1', '--allow-unauthenticated']
+    args: ['beta', 'run', 'deploy', 'cloud-run-example', '--image', 'asia.gcr.io/gold-episode-260512/quarkus-example', '--platform', 'managed', '--region', 'asia-northeast1', '--allow-unauthenticated']
     dir: './'
